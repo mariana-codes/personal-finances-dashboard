@@ -1,0 +1,25 @@
+.container {
+  background: var(--gray4);
+  padding: 1.5rem 2rem;
+  border-radius: 0.25rem;
+  color: var(--gray7);
+
+  strong {
+    display: block;
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 3rem;
+  }
+}
+
+.header {
+  color: var(--gray6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.alternative {
+  background: var(--green-dark);
+}
