@@ -1,6 +1,13 @@
+import { useEffect } from 'react';
+
+import { api } from '../../services/api';
 import styles from './TransactionsTable.module.css';
 
 export const TransactionsTable = () => {
+  useEffect(() => {
+    api.get('transactions').then((response) => console.log(response.data));
+  }, []);
+
   return (
     <div className={styles.container}>
       <table>
