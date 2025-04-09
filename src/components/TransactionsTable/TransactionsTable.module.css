@@ -19,7 +19,6 @@
       background: var(--gray3);
       font-weight: normal;
       color: var(--gray6);
-      border-radius: 0.25rem;
 
       &.deposit {
         color: var(--green-light);
@@ -27,6 +26,16 @@
       &.withdraw {
         color: var(--red);
       }
+    }
+
+    td:first-child {
+      border-top-left-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem;
+    }
+
+    td:last-child {
+      border-top-right-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem;
     }
   }
 }

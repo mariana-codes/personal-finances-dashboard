@@ -5,7 +5,8 @@
   border: 0;
   padding: 0 2rem;
   border-radius: 0.25rem;
-  height: 3rem;
+  height: 3.125rem;
+  font-weight: 700;
 
   transition: filter 0.2s;
 
