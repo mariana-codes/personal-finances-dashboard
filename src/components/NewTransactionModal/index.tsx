@@ -60,6 +60,7 @@ export const NewTransactionModal = ({ isOpen, onRequestClose }: NewTransactionMo
         <input
           placeholder="Valor"
           type="number"
+          min={0}
           value={amount}
           onChange={(event) => setAmount(Number(event.target.value))}
         />

@@ -8,22 +8,48 @@ import styles from './Summary.module.css';
 export const Summary = () => {
   const { transactions } = useContext(TransactionsContext);
 
-  console.log('transactions', transactions);
+  const summary = transactions.reduce(
+    (acc, transaction) => {
+      if (transaction.type == 'deposit') {
+        acc.deposits += transaction.amount;
+        acc.total += transaction.amount;
+      } else {
+        acc.withdraws += transaction.amount;
+        acc.total -= transaction.amount;
+      }
+
+      return acc;
+    },
+    {
+      deposits: 0,
+      withdraws: 0,
+      total: 0,
+    },
+  );
 
   return (
     <div className={styles.container}>
       <Card
-        balance={1000}
+        balance={new Intl.NumberFormat('pt-PT', {
+          style: 'currency',
+          currency: 'EUR',
+        }).format(summary.deposits)}
         headerTitle="Entradas"
         icon={<ArrowCircleUp color="var(--green-light)" size={32} />}
       />
       <Card
-        balance={700}
+        balance={new Intl.NumberFormat('pt-PT', {
+          style: 'currency',
+          currency: 'EUR',
+        }).format(summary.withdraws)}
         headerTitle="Saídas"
         icon={<ArrowCircleDown color="var(--red)" size={32} />}
       />
       <Card
-        balance={300}
+        balance={new Intl.NumberFormat('pt-PT', {
+          style: 'currency',
+          currency: 'EUR',
+        }).format(summary.total)}
         alternativeColor
         headerTitle="Total"
         icon={<CurrencyDollar color="var(--white)" size={32} />}

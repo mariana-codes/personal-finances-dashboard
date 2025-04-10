@@ -5,7 +5,7 @@ import styles from './Card.module.css';
 interface CardProps {
   headerTitle: string;
   icon: ReactNode;
-  balance: number;
+  balance: number | string;
   alternativeColor?: boolean;
 }
 
@@ -16,7 +16,7 @@ export const Card = ({ balance, headerTitle, icon, alternativeColor }: CardProps
         <span>{headerTitle}</span>
         <span>{icon}</span>
       </header>
-      <strong>€ {balance}</strong>
+      <strong>{balance}</strong>
     </div>
   );
 };
